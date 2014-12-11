@@ -1,11 +1,21 @@
 {
   "name": "skypeIt",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha test.js"
+  },
+  "bin": {
+    "skypeit": "./bin/skypeit.js"
   },
   "author": "",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "chalk": "^0.5.1",
+    "msee": "^0.1.1"
+  },
+  "devDependencies": {
+    "chai": "^1.10.0"
+  }
 }
