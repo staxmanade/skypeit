@@ -2,7 +2,7 @@
 'use strict';
 
 var spawn = require('child_process').spawn;
-var chalk = require('chalk');
+var path = require('path');
 var parseArgs = require('../skypeit').parseArgs;
 var cleanArgs = process.argv.map(function (item) {
   return (item || '').toLowerCase();
@@ -21,7 +21,7 @@ var printHelpMessage = function() {
 
   vlog("printing help...");
 
-  var helpFile = require('path').join(__dirname, 'help.md');
+  var helpFile = path.join(__dirname, 'help.md');
   var output = require('msee').parseFile(helpFile);
 
   // Some spacing formatting cleanup
@@ -38,7 +38,8 @@ var result = parseArgs(process.argv.slice(2), debug);
 
 if(!result) {
   printHelpMessage();
-  console.log(chalk.red("invalid input..."));
+  var chalk = require('chalk');
+  console.log(chalk.red("invalid input... Consider using the --debug parameter to help diagnose issues."));
   return;
 }
 
@@ -46,7 +47,7 @@ vlog('process.argv:', process.argv);
 vlog('debug:', debug);
 vlog('parseArgs: ', result);
 
-var appleScriptArgs = ['./skypeItAppleScript.scpt', result.num, result.ext];
+var appleScriptArgs = [ path.join(__dirname, './skypeItAppleScript.scpt'), result.num, result.ext];
 
 var appleScriptCmd = 'osascript';
 
