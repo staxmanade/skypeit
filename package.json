@@ -1,13 +1,21 @@
 {
   "name": "skypeit",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "Allows you to quickly, from the command line, start a skype call and even wait for it to dial a conference line extension",
   "main": "index.js",
+  "preferglobal": true,
   "scripts": {
-    "test": "mocha test.js"
+    "test": "mocha tests/*"
   },
   "bin": {
     "skypeit": "./bin/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/staxmanade/skypeit"
+  },
+  "bugs": {
+    "url": "https://github.com/staxmanade/skypeit/issues"
   },
   "author": "",
   "license": "MIT",

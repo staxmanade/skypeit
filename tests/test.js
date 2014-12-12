@@ -2,7 +2,7 @@
 
 var expect = require('chai').expect;
 
-var parseArgs = require('./skypeit').parseArgs;
+var parseArgs = require('../skypeit').parseArgs;
 
 describe('when parsing skype args', function () {
 
