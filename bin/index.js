@@ -9,7 +9,7 @@ var cleanArgs = process.argv.map(function (item) {
 });
 
 var debug = cleanArgs.indexOf('--debug') >= 0 || cleanArgs.indexOf('--verbose') >= 0;
-var help = cleanArgs.indexOf('--help') <= 0;
+var help = cleanArgs.indexOf('--help') >= 0;
 
 var vlog = function () {
   if(debug) {
