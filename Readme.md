@@ -1,7 +1,9 @@
 
 # SkypeIt
 
-Allows you to quickly, from the command line, start a skype call.
+Quickly and easily paste a conference call text at the command line and let SkypeIt dial the number and extension for you.
+
+EX:
 
 - To a regular number `skypeit "(555)555-5555"`
 - To a conference call `skypeit "(555)555-5555 ext #1234"`
