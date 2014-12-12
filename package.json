@@ -7,7 +7,7 @@
     "test": "mocha test.js"
   },
   "bin": {
-    "skypeit": "./bin/skypeit.js"
+    "skypeit": "./bin/index.js"
   },
   "author": "",
   "license": "MIT",
