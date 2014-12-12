@@ -1,7 +1,7 @@
 {
   "name": "skypeit",
-  "version": "0.0.4",
-  "description": "",
+  "version": "0.0.5",
+  "description": "Allows you to quickly, from the command line, start a skype call.\n  \n  - To a regular number `skypeit \"(555)555-5555\"`\n  - To a conference call `skypeit \"(555)555-5555 ext #1234\"`",
   "main": "index.js",
   "scripts": {
     "test": "mocha test.js"
