@@ -5,7 +5,15 @@ var knownArgs = [
 
 exports.parseArgs = function (args, debug) {
 
+  var dlog = function () {
+    if(debug) {
+      console.log.apply(null, arguments);
+    }
+  };
+
   var noPoundAfterExt = false;
+
+  dlog("args:", args);
 
 
   if(!args || !args.length || typeof args === "string") {
@@ -35,6 +43,9 @@ exports.parseArgs = function (args, debug) {
       });
     });
 
+    dlog("args procesed:", args);
+
+
     newArgs = newArgs
       .filter(function (item) {
         // remove known args like (--verbose)
@@ -48,6 +59,8 @@ exports.parseArgs = function (args, debug) {
         // filter out empty items from array
         return item.trim().length > 0;
       });
+
+    dlog("newArgs:", newArgs);
 
     //console.log(newArgs);
 
@@ -68,6 +81,8 @@ exports.parseArgs = function (args, debug) {
       }
     });
 
+  dlog("num: ", num);
+  dlog("ext: ", ext);
   //console.log(args);
 
   if(ext) {
@@ -76,21 +91,28 @@ exports.parseArgs = function (args, debug) {
     noPoundAfterExt = true;
   }
 
+
+  dlog("ext after pound check: ", ext);
+
   // if no number parsed - get outa here
   if(!num) {
+    dlog('no num value - return null');
     return null;
   }
 
   // TODO: this is U.S. only at the moment.
   // consider what international would look like
   if(num.length != 10) {
+    dlog('num.length = ' + num.length + ' which was not 10 - return null');
     return null;
   }
 
-  return {
+  var result = {
     num: '+1' + num,
     ext: ext,
     noPoundAfterExt: noPoundAfterExt,
   };
+  dlog('result:', result);
+  return result;
 
 };

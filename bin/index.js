@@ -11,7 +11,7 @@ var cleanArgs = process.argv.map(function (item) {
 var debug = cleanArgs.indexOf('--debug') >= 0 || cleanArgs.indexOf('--verbose') >= 0;
 var help = cleanArgs.indexOf('--help') >= 0;
 
-var vlog = function () {
+var dlog = function () {
   if(debug) {
     console.log.apply(null, arguments);
   }
@@ -19,7 +19,7 @@ var vlog = function () {
 
 var printHelpMessage = function() {
 
-  vlog("printing help...");
+  dlog("printing help...");
 
   var helpFile = path.join(__dirname, 'help.md');
   var output = require('msee').parseFile(helpFile);
@@ -43,15 +43,15 @@ if(!result) {
   return;
 }
 
-vlog('process.argv:', process.argv);
-vlog('debug:', debug);
-vlog('parseArgs: ', result);
+dlog('process.argv:', process.argv);
+dlog('debug:', debug);
+dlog('parseArgs: ', result);
 
 var appleScriptArgs = [ path.join(__dirname, './skypeItAppleScript.scpt'), result.num, result.ext];
 
 var appleScriptCmd = 'osascript';
 
-vlog(appleScriptCmd + ' ' + appleScriptArgs.join(' '));
+dlog(appleScriptCmd + ' ' + appleScriptArgs.join(' '));
 
 if(debug) {
   var cmd = spawn(appleScriptCmd, appleScriptArgs);

@@ -71,6 +71,7 @@ describe('when parsing skype args', function () {
         noPoundAfterExt: false
       }
     },
+
     {
       input: '1-555-555-5555 555555',
       expected: {
@@ -79,11 +80,19 @@ describe('when parsing skype args', function () {
         noPoundAfterExt: false
       }
     },
+    {
+      input: '1-555-555-5555 Code 5555555',
+      expected: {
+        num: '+15555555555',
+        ext: '5555555#',
+        noPoundAfterExt: false
+      }
+    },
   ].forEach(function (item) {
 
     it('should parse input correctly: ' + item.input, function () {
       var args = item.input.split(' ');
-      var result = parseArgs(args);
+      var result = parseArgs(args, /*debug*/false);
 
       expect(result).to.be.ok;
       expect(result.num).to.equal(item.expected.num);
