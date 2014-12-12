@@ -11,7 +11,7 @@
 
 # SkypeIt Usage
 
-&nbsp;&nbsp;`skypeit "&lt;phone number&gt;"`
+&nbsp;&nbsp;`skypeit "<phone number>"`
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  **"<phone number>"**     : Phone # including Extension (see examples below)
 
