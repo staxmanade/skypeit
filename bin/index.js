@@ -9,6 +9,7 @@ var cleanArgs = process.argv.map(function (item) {
 });
 
 var debug = cleanArgs.indexOf('--debug') >= 0 || cleanArgs.indexOf('--verbose') >= 0;
+var help = cleanArgs.indexOf('--help') <= 0;
 
 var vlog = function () {
   if(debug) {
@@ -28,6 +29,10 @@ var printHelpMessage = function() {
   console.log(output);
 };
 
+if(help){
+  printHelpMessage();
+  return;
+}
 
 var result = parseArgs(process.argv.slice(2), debug);
 
