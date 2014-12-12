@@ -1,6 +1,6 @@
 {
   "name": "skypeit",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "Allows you to quickly, from the command line, start a skype call and even wait for it to dial a conference line extension",
   "main": "index.js",
   "preferglobal": true,
