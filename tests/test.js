@@ -16,6 +16,7 @@ describe('when parsing skype args', function () {
       }
     },
     {
+      info: "has a 1 in the front & some whitespace",
       input: '	1-555-555-5555  --> 555555',
       expected: {
         num: '+15555555555',
@@ -32,6 +33,7 @@ describe('when parsing skype args', function () {
       }
     },
     {
+      info: "has the --verbose flag",
       input: '	(555) 555-5555 x 5555555 --verbose',
       expected: {
         num: '+15555555555',
@@ -40,6 +42,7 @@ describe('when parsing skype args', function () {
       }
     },
     {
+      info: "has the --verbose flag",
       input: '--verbose	(555) 555-5555 x 5555555',
       expected: {
         num: '+15555555555',
@@ -48,6 +51,7 @@ describe('when parsing skype args', function () {
       }
     },
     {
+      info: "has the --nopound flag",
       input: '--nopound	(555) 555-5555 x 5555555',
       expected: {
         num: '+15555555555',
@@ -56,6 +60,7 @@ describe('when parsing skype args', function () {
       }
     },
     {
+      info: "no extension",
       input: '(555) 555-5555',
       expected: {
         num: '+15555555555',
@@ -64,6 +69,7 @@ describe('when parsing skype args', function () {
       }
     },
     {
+      info: "extension attached to main number",
       input: '(555) 555-5555#555',
       expected: {
         num: '+15555555555',
@@ -88,9 +94,21 @@ describe('when parsing skype args', function () {
         noPoundAfterExt: false
       }
     },
+    {
+      info: "already has a # at end of ext",
+      input: '1-555-555-5555 Code 5555555#',
+      expected: {
+        num: '+15555555555',
+        ext: '5555555#',
+        noPoundAfterExt: false
+      }
+    },
   ].forEach(function (item) {
 
     it('should parse input correctly: ' + item.input, function () {
+      if(item.info) {
+        console.log(item.info);
+      }
       var args = item.input.split(' ');
       var result = parseArgs(args, /*debug*/false);
 
