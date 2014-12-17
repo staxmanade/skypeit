@@ -86,7 +86,7 @@ exports.parseArgs = function (args, debug) {
   //console.log(args);
 
   if(ext) {
-    ext = ext + (noPoundAfterExt ? '' : '#');
+    ext = ',' + ext + (noPoundAfterExt ? '' : '#');
   } else {
     noPoundAfterExt = true;
   }

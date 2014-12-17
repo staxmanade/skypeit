@@ -11,7 +11,7 @@ describe('when parsing skype args', function () {
       input: 'Dial (555) 555-5555 acc 5555555 lead 5555',
       expected: {
         num: '+15555555555',
-        ext: '5555555#',
+        ext: ',5555555#',
         noPoundAfterExt: false
       }
     },
@@ -20,7 +20,7 @@ describe('when parsing skype args', function () {
       input: '	1-555-555-5555  --> 555555',
       expected: {
         num: '+15555555555',
-        ext: '555555#',
+        ext: ',555555#',
         noPoundAfterExt: false
       }
     },
@@ -28,7 +28,7 @@ describe('when parsing skype args', function () {
       input: '	(555) 555-5555 x 5555555',
       expected: {
         num: '+15555555555',
-        ext: '5555555#',
+        ext: ',5555555#',
         noPoundAfterExt: false
       }
     },
@@ -37,7 +37,7 @@ describe('when parsing skype args', function () {
       input: '	(555) 555-5555 x 5555555 --verbose',
       expected: {
         num: '+15555555555',
-        ext: '5555555#',
+        ext: ',5555555#',
         noPoundAfterExt: false
       }
     },
@@ -46,7 +46,7 @@ describe('when parsing skype args', function () {
       input: '--verbose	(555) 555-5555 x 5555555',
       expected: {
         num: '+15555555555',
-        ext: '5555555#',
+        ext: ',5555555#',
         noPoundAfterExt: false
       }
     },
@@ -55,7 +55,7 @@ describe('when parsing skype args', function () {
       input: '--nopound	(555) 555-5555 x 5555555',
       expected: {
         num: '+15555555555',
-        ext: '5555555',
+        ext: ',5555555',
         noPoundAfterExt: true
       }
     },
@@ -73,7 +73,7 @@ describe('when parsing skype args', function () {
       input: '(555) 555-5555#555',
       expected: {
         num: '+15555555555',
-        ext: '555#',
+        ext: ',555#',
         noPoundAfterExt: false
       }
     },
@@ -82,7 +82,7 @@ describe('when parsing skype args', function () {
       input: '1-555-555-5555 555555',
       expected: {
         num: '+15555555555',
-        ext: '555555#',
+        ext: ',555555#',
         noPoundAfterExt: false
       }
     },
@@ -90,7 +90,7 @@ describe('when parsing skype args', function () {
       input: '1-555-555-5555 Code 5555555',
       expected: {
         num: '+15555555555',
-        ext: '5555555#',
+        ext: ',5555555#',
         noPoundAfterExt: false
       }
     },
@@ -99,7 +99,7 @@ describe('when parsing skype args', function () {
       input: '1-555-555-5555 Code 5555555#',
       expected: {
         num: '+15555555555',
-        ext: '5555555#',
+        ext: ',5555555#',
         noPoundAfterExt: false
       }
     },
