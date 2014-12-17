@@ -12,7 +12,7 @@ numbers have extensions as well.
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  **[--debug]**            : Logs debug info & doesn't run the applescript in the background
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  **[--version]**         : Prints just the version.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  **[--version]**          : Prints just the version.
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  **[--help]**             : Prints this help info.
 
