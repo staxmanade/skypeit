@@ -10,11 +10,16 @@ var cleanArgs = process.argv.map(function (item) {
 
 var debug = cleanArgs.indexOf('--debug') >= 0 || cleanArgs.indexOf('--verbose') >= 0;
 var help = cleanArgs.indexOf('--help') >= 0;
+var printVersion = cleanArgs.indexOf('--version') >= 0;
 
 var dlog = function () {
   if(debug) {
     console.log.apply(null, arguments);
   }
+};
+
+var getVersion = function () {
+  return require('../package.json').version;
 };
 
 var printHelpMessage = function() {
@@ -24,6 +29,9 @@ var printHelpMessage = function() {
   var helpFile = path.join(__dirname, 'help.md');
   var output = require('msee').parseFile(helpFile);
 
+  var version = getVersion();
+  output = output.replace('{{version}}', version);
+
   // Some spacing formatting cleanup
   output = output.replace(/&nbsp;/g, ' ');
   console.log(output);
@@ -31,6 +39,11 @@ var printHelpMessage = function() {
 
 if(help){
   printHelpMessage();
+  return;
+}
+
+if(printVersion) {
+  console.log(getVersion());
   return;
 }
 

@@ -1,5 +1,6 @@
 var knownArgs = [
   '--verbose',
+  '--version',
   '--nopound'
 ];
 
