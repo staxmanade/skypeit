@@ -9,8 +9,7 @@ var cleanArgs = process.argv.map(function (item) {
 });
 
 var debug = cleanArgs.indexOf('--debug') >= 0 || cleanArgs.indexOf('--verbose') >= 0;
-var help = cleanArgs.indexOf('--help') >= 0;
-var printVersion = cleanArgs.indexOf('--version') >= 0;
+var config = require('../lib/config.js')(debug);
 
 var dlog = function () {
   if(debug) {
@@ -37,17 +36,45 @@ var printHelpMessage = function() {
   console.log(output);
 };
 
-if(help){
+var argv = require('minimist')(process.argv.slice(2));
+
+dlog('args: ', argv);
+
+if(argv.help) {
   printHelpMessage();
   return;
 }
 
-if(printVersion) {
+if(argv.version) {
   console.log(getVersion());
   return;
 }
 
-var result = parseArgs(process.argv.slice(2), debug);
+if(argv.completion) {
+
+  if(argv.completion === true) {
+    console.log(config.listAlias.join('\n'));
+    return;
+  }
+
+  require('../lib/completion')(argv.completion);
+  return;
+}
+
+var aliasNumber;
+var alias = argv._[0];
+var result;
+dlog("config.alias: ", config.alias);
+if(alias && config.alias[alias]) {
+  dlog('found alias for: ' + alias);
+  var aliasValue = config.alias[alias];
+  dlog('alias:', aliasValue);
+  aliasNumber = aliasValue.number;
+  result = parseArgs(aliasNumber.split(' '), debug);
+} else {
+  dlog('no alias found');
+  result = parseArgs(argv._, debug);
+}
 
 if(!result) {
   printHelpMessage();

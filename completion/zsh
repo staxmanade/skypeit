@@ -1,0 +1,18 @@
+#!/bin/zsh
+#
+# Usage:
+#
+# To enable zsh <tab> completion for skypeit, add the following line (minus the
+# leading #, which is the zsh comment character) to your ~/.zshrc file:
+#
+# eval "$(skypeit --completion=zsh)"
+
+# Enable zsh autocompletion.
+function _skypeit_completion() {
+  # Grab tasks
+  compls=$(skypeit --completion)
+  completions=(${=compls})
+  compadd -- $completions
+}
+
+compdef _skypeit_completion skypeit

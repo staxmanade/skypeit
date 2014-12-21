@@ -26,7 +26,8 @@ exports.parseArgs = function (args, debug) {
   (args || [])
     .map(function (item) {
       // sanatize null inputs and lowercase everything
-      return (item || '').toLowerCase();
+      console.log(typeof item);
+      return String(item || '').toLowerCase();
     })
     .forEach(function (item) {
 
