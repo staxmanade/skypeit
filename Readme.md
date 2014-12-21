@@ -17,6 +17,10 @@ EX:
 
 `npm install -g skypeit`
 
+# Tab Completion
+
+Check out [how to install](completion/Readme.md).
+
 # SkypeIt Usage
 
 &nbsp;&nbsp;`skypeit "<phone number>"`
