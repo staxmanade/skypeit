@@ -17,10 +17,6 @@ EX:
 
 `npm install -g skypeit`
 
-# Tab Completion
-
-Check out [how to install](completion/Readme.md).
-
 # SkypeIt
 
 SkypeIt takes the hassle out of dialing a long number and
@@ -52,6 +48,27 @@ numbers have extensions as well.
 &nbsp;&nbsp;`skypeit "(555)555-5555"` <-- (no extension)
 
 &nbsp;&nbsp;`skypeit "(555)555-5555" --debug` <-- Debug if you're having trouble.
+
+# Alias phone numbers for quick access
+
+If you want to take advantage of skypeit's aliases:
+
+1. Create the following file `~/.skypeitrc`
+2. Fill it with the aliases you'd like.
+
+```yaml
+alias:
+  office:
+    number: 555-555-5555 ext 5555
+  mom:
+    number: 555-555-5555 ext 5555
+
+```
+
+# Tab Completion
+
+If you've setup a `~/.skypeitrc` config file with the above structure, you can check out [how to install](completion/Readme.md) tab completion.
+
 
 # Troubleshoot?
 
