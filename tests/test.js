@@ -2,7 +2,7 @@
 
 var expect = require('chai').expect;
 
-var parseArgs = require('../skypeit').parseArgs;
+var parsePhoneNumber = require('../lib/parsePhoneNumber').parsePhoneNumber;
 
 describe('when parsing skype args', function () {
 
@@ -110,7 +110,7 @@ describe('when parsing skype args', function () {
         console.log(item.info);
       }
       var args = item.input.split(' ');
-      var result = parseArgs(args, /*debug*/false);
+      var result = parsePhoneNumber(args, /*debug*/false);
 
       expect(result).to.be.ok;
       expect(result.num).to.equal(item.expected.num);
@@ -129,7 +129,7 @@ describe('when parsing skype args', function () {
     ['555']
   ].forEach(function (item) {
     it('should handle strange inputs: ' + item, function () {
-      expect(parseArgs(item)).to.equal(null);
+      expect(parsePhoneNumber(item)).to.equal(null);
     });
   });
 

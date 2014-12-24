@@ -5,7 +5,7 @@ var spawn = require('child_process').spawn;
 var path = require('path');
 var _ = require('lodash');
 var Liftoff = require('liftoff');
-var parseArgs = require('../skypeit').parseArgs;
+var parsePhoneNumber = require('../lib/parsePhoneNumber').parsePhoneNumber;
 var cleanArgs = process.argv.map(function (item) {
   return (item || '').toLowerCase();
 });
@@ -96,10 +96,10 @@ var invoke = function (env) {
     var aliasValue = config.alias[alias];
     dlog('alias:', aliasValue);
     aliasNumber = aliasValue.number;
-    result = parseArgs(aliasNumber.split(' '), debug);
+    result = parsePhoneNumber(aliasNumber.split(' '), debug);
   } else {
     dlog('no alias found');
-    result = parseArgs(argv._, debug);
+    result = parsePhoneNumber(argv._, debug);
   }
 
   if(!result) {
@@ -111,7 +111,7 @@ var invoke = function (env) {
 
   dlog('process.argv:', process.argv);
   dlog('debug:', debug);
-  dlog('parseArgs: ', result);
+  dlog('parsePhoneNumber result: ', result);
 
   var appleScriptArgs = [ path.join(__dirname, './skypeItAppleScript.scpt'), result.num, result.ext];
 
