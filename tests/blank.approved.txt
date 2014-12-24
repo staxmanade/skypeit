@@ -7,10 +7,9 @@ numbers have extensions as well.
 
 # Usage
 
-  skypeit "<phone number>"
-        "<phone number>"     : Phone # including Extension (see examples below)
-        [--debug]            : Logs debug info & doesn't run the applescript in the background
-        [--completion=zsh]   : Prints just the version.
+  skypeit [phone# [ext]]
+        [--debug]            : Logs extra diagnostic debug info
+        [--completion[=zsh]] : Prints completion commands
         [--version]          : Prints just the version.
         [--help]             : Prints this help info.
 
@@ -18,7 +17,11 @@ numbers have extensions as well.
 
   skypeit "(555)555-5555 ext:1234"
   skypeit "some garbage text (555)    555  5555  #1234"
-  skypeit "(555)555-5555" <-- (no extension)
-  skypeit "(555)555-5555" --debug <-- Debug if you're having trouble.
+  skypeit "(555)555-5555"              <-- (no extension)
+  skypeit "(555)555-5555" --debug      <-- Use --debug to see a verbose log
+                                           and diagnoses issues.
+  skypeit "(555)555-5555" --completion <-- Get a list of the auto-completion
+                                           options stored in ~/.skypeitrc or
+                                           your local project's .skypeitrc
 
 invalid input... Consider using the --debug parameter to help diagnose issues.

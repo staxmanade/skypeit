@@ -6,13 +6,11 @@ numbers have extensions as well.
 
 # Usage
 
-&nbsp;&nbsp;`skypeit "<phone number>"`
+&nbsp;&nbsp;`skypeit [phone# [ext]]`
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  **"<phone number>"**     : Phone # including Extension (see examples below)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  **[--debug]**            : Logs extra diagnostic debug info
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  **[--debug]**            : Logs debug info & doesn't run the applescript in the background
-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  **[--completion=zsh]**   : Prints just the version.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  **[--completion[=zsh]]** : Prints completion commands
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  **[--version]**          : Prints just the version.
 
@@ -25,6 +23,11 @@ numbers have extensions as well.
 
 &nbsp;&nbsp;`skypeit "some garbage text (555)    555  5555  #1234"`
 
-&nbsp;&nbsp;`skypeit "(555)555-5555"` <-- (no extension)
+&nbsp;&nbsp;`skypeit "(555)555-5555"` &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<-- (no extension)
 
-&nbsp;&nbsp;`skypeit "(555)555-5555" --debug` <-- Debug if you're having trouble.
+&nbsp;&nbsp;`skypeit "(555)555-5555" --debug` &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<-- Use `--debug` to see a verbose log
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;and diagnoses issues.
+
+&nbsp;&nbsp;`skypeit "(555)555-5555" --completion` <-- Get a list of the auto-completion
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;options stored in `~/.skypeitrc` or
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;your local project's `.skypeitrc`
