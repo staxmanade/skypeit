@@ -101,7 +101,7 @@ if(debug) {
   });
 
   cmd.stderr.on('data', function (data) {
-    console.log('stderr: ' + data);
+    console.error('stderr: ' + data);
   });
 
   cmd.on('close', function (code) {

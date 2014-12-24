@@ -1,0 +1,23 @@
+
+# SkypeIt (v0.0.14)
+
+SkypeIt takes the hassle out of dialing a long number and
+can be extraordinarily helpful when those long phone
+numbers have extensions as well.
+
+# Usage
+
+  skypeit "<phone number>"
+        "<phone number>"     : Phone # including Extension (see examples below)
+        [--debug]            : Logs debug info & doesn't run the applescript in the background
+        [--completion=zsh]   : Prints just the version.
+        [--version]          : Prints just the version.
+        [--help]             : Prints this help info.
+
+# Examples
+
+  skypeit "(555)555-5555 ext:1234"
+  skypeit "some garbage text (555)    555  5555  #1234"
+  skypeit "(555)555-5555" <-- (no extension)
+  skypeit "(555)555-5555" --debug <-- Debug if you're having trouble.
+

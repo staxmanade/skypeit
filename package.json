@@ -26,6 +26,8 @@
     "msee": "^0.1.1"
   },
   "devDependencies": {
-    "chai": "^1.10.0"
+    "approvals": "0.0.24",
+    "chai": "^1.10.0",
+    "shelljs": "^0.3.0"
   }
 }
