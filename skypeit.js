@@ -1,7 +1,8 @@
 var knownArgs = [
   '--verbose',
   '--version',
-  '--nopound'
+  '--nopound',
+  '--completion'
 ];
 
 exports.parseArgs = function (args, debug) {
