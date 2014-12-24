@@ -5,7 +5,7 @@
   "main": "index.js",
   "preferglobal": true,
   "scripts": {
-    "test": "mocha tests/*"
+    "test": "mocha tests/*.js"
   },
   "bin": {
     "skypeit": "./bin/index.js"
