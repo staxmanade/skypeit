@@ -17,10 +17,10 @@ describe('when calling the cli', function () {
       testName: 'help',
       cmd: '--help'
     },
-    // {
-    //   testName: '',
-    //   cmd: ''
-    // },
+    {
+      testName: 'sampleConfig',
+      cmd: '--sampleConfig'
+    },
     // {
     //   testName: '',
     //   cmd: ''

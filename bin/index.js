@@ -76,6 +76,13 @@ var invoke = function (env) {
   dlog('localConfigPath:', localConfigPath);
   var config = require('../lib/config.js')(debug, globalConfigPath, localConfigPath);
 
+
+  if(argv.sampleConfig) {
+    console.log(config.sampleConfig());
+    return;
+  }
+
+
   if(argv.completion) {
 
     if(argv.completion === true) {

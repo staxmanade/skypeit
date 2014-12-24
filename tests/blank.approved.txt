@@ -10,8 +10,9 @@ numbers have extensions as well.
   skypeit [phone# [ext]]
         [--debug]            : Logs extra diagnostic debug info
         [--completion[=zsh]] : Prints completion commands
-        [--version]          : Prints just the version.
-        [--help]             : Prints this help info.
+        [--sampleConfig]     : Prints sample yaml config
+        [--version]          : Prints just the version
+        [--help]             : Prints this help info
 
 # Examples
 

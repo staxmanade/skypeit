@@ -12,9 +12,11 @@ numbers have extensions as well.
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  **[--completion[=zsh]]** : Prints completion commands
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  **[--version]**          : Prints just the version.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  **[--sampleConfig]**     : Prints sample yaml config
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  **[--help]**             : Prints this help info.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  **[--version]**          : Prints just the version
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  **[--help]**             : Prints this help info
 
 
 # Examples

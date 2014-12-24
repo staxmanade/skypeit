@@ -1,0 +1,6 @@
+alias:
+  sample:
+    number: 555-555-5555 ext 5555
+  anotherSample:
+    number: 555-555-5555 ext 5555
+
