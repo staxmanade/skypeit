@@ -14,7 +14,7 @@ function getUserHome() {
   return process.env[(process.platform == 'win32') ? 'USERPROFILE' : 'HOME'];
 }
 
-var globalConfigFileName = '.skypeitrc';
+var skypeitrcName = '.skypeitrc';
 var debug = cleanArgs.indexOf('--debug') >= 0 || cleanArgs.indexOf('--verbose') >= 0;
 
 var dlog = function () {
@@ -46,7 +46,7 @@ var printHelpMessage = function() {
 var Skypeit = new Liftoff({
   processTitle: 'SkypeIt',
   moduleName: 'skypeit',
-  configName: globalConfigFileName,
+  configName: skypeitrcName,
   extensions:{
     '': null
   }
@@ -70,8 +70,8 @@ var invoke = function (env) {
     return;
   }
 
-  var globalConfigPath = path.join(getUserHome(), globalConfigFileName);
-  var localConfigPath = path.join(env.configBase, globalConfigFileName);
+  var globalConfigPath = path.join(getUserHome(), skypeitrcName);
+  var localConfigPath = env.configBase && path.join(env.configBase, skypeitrcName);
   dlog('globalConfigPath:', globalConfigPath);
   dlog('localConfigPath:', localConfigPath);
   var config = require('../lib/config.js')(debug, globalConfigPath, localConfigPath);
