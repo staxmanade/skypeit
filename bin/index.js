@@ -1,7 +1,8 @@
 #!/usr/bin/env node
 'use strict';
 
-var spawn = require('child_process').spawn;
+var child_process = require('child_process');
+var spawn = child_process.spawn;
 var path = require('path');
 var _ = require('lodash');
 var Liftoff = require('liftoff');
@@ -76,7 +77,6 @@ var invoke = function (env) {
   dlog('localConfigPath:', localConfigPath);
   var config = require('../lib/config.js')(debug, globalConfigPath, localConfigPath);
 
-
   if(argv.sampleConfig) {
     console.log(config.sampleConfig());
     return;
@@ -94,6 +94,16 @@ var invoke = function (env) {
     return;
   }
 
+  if(config && config.copyCommandToClipboard) {
+    dlog("copying skypeit to clipboard");
+    var clipboard = child_process.spawn('pbcopy');
+    var clipboardCmd = "skypeit " + cleanArgs.slice(2).join(' ');
+    dlog("copying: " + clipboardCmd);
+    clipboard.stdin.write(clipboardCmd);
+    clipboard.stdin.end();
+  }
+
+
   var aliasNumber;
   var alias = argv._[0];
   var result;
@@ -106,6 +116,7 @@ var invoke = function (env) {
     result = parsePhoneNumber(aliasNumber.split(' '), debug);
   } else {
     dlog('no alias found');
+
     result = parsePhoneNumber(argv._, debug);
   }
 
