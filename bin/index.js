@@ -95,14 +95,15 @@ var invoke = function (env) {
   }
 
   if(config && config.copyCommandToClipboard) {
-    dlog("copying skypeit to clipboard");
-    var clipboard = child_process.spawn('pbcopy');
+    dlog("copying skypeit command to clipboard...");
     var clipboardCmd = "skypeit " + cleanArgs.slice(2).join(' ');
-    dlog("copying: " + clipboardCmd);
-    clipboard.stdin.write(clipboardCmd);
-    clipboard.stdin.end();
+    dlog("copying cmd: " + clipboardCmd);
+    var copyPaste = require('copy-paste');
+    copyPaste.copy(clipboardCmd, function () {
+      dlog("arguments", arguments);
+      dlog("copying skypeit command to clipboard...");
+    });
   }
-
 
   var aliasNumber;
   var alias = argv._[0];
