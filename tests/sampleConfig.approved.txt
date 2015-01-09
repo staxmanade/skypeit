@@ -1,6 +1,10 @@
 alias:
-  sample:
-    number: 555-555-5555 ext 5555
+  sampleConference:
+    number: 555-555-5555 CODE 5555
   anotherSample:
     number: 555-555-5555 ext 5555
+
+# Places the skype command for easy
+# for easy sharing to your team
+copyCommandToClipboard: true
 
