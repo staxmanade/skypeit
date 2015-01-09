@@ -1,3 +1,2 @@
 anotherSample
-sample
 sampleConference
