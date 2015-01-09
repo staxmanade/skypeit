@@ -28,9 +28,14 @@ describe('when calling the cli', function () {
   ].forEach(function (item) {
 
     it('should verify command: ' + item.cmd, function () {
-
+      this.timeout(5000);
+      
       var result = exec(path.join(__dirname, "../bin/index.js") + " " + item.cmd);
       var output = result.output;
+
+      // remove version
+      output = output.replace(/\(v(.*)\)/g, '(v###)');
+
       approvals.verify(__dirname, item.testName, output);
 
     });

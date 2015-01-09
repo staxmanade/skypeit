@@ -1,5 +1,5 @@
 
-# SkypeIt (v0.0.14)
+# SkypeIt (v###)
 
 SkypeIt takes the hassle out of dialing a long number and
 can be extraordinarily helpful when those long phone
