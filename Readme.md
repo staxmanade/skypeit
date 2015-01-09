@@ -10,7 +10,9 @@ EX:
 
 # Requirements
 
-- OS: Mac
+- OS: 
+  - Mac
+  - Windows (Beta Support)
 - [NPM - Node Package Manager](http://nodejs.org/download/)
 
 # How to Install
