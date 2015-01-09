@@ -137,8 +137,15 @@ var invoke = function (env) {
   dlog('debug:', debug);
   dlog('parsePhoneNumber result: ', result);
 
+  // windows 
+  if(/^win/.test(process.platform)){
+    var opn = require('opn')
+    opn('skype://' + result.num + result.ext)
+    return;
+  }
+
   var externalCommand = 'osascript';
-  var externalCommandArgs = [ path.join(__dirname, './skypeItAppleScript.scpt'), result.num, result.ext];
+  var externalCommandArgs = [ path.join(__dirname, './skypeItAppleScript.scpt'), result.num, result.ext];        
 
   dlog(externalCommand + ' ' + externalCommandArgs.join(' '));
 
