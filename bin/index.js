@@ -30,7 +30,7 @@ var getVersion = function () {
 
 var printHelpMessage = function() {
 
-  dlog("printing help...");
+  dlog('printing help...');
 
   var helpFile = path.join(__dirname, 'help.md');
   var output = require('msee').parseFile(helpFile);
@@ -96,23 +96,11 @@ var invoke = function (env) {
     return;
   }
 
-  // copy skypeit command to the clipboard
-  if(config && config.copyCommandToClipboard) {
-    dlog("copying skypeit command to clipboard...");
-    var clipboardCmd = "skypeit " + cleanArgs.slice(2).join(' ');
-    dlog("copying cmd: " + clipboardCmd);
-    var copyPaste = require('copy-paste');
-    copyPaste.copy(clipboardCmd, function () {
-      dlog("arguments", arguments);
-      dlog("copying skypeit command to clipboard...");
-    });
-  }
-
   // look for alias values
   var aliasNumber;
   var alias = argv._[0];
   var result;
-  dlog("config.alias: ", config.alias);
+  dlog('config.alias: ', config.alias);
   if(alias && config.alias[alias]) {
     dlog('found alias for: ' + alias);
     var aliasValue = config.alias[alias];
@@ -129,7 +117,7 @@ var invoke = function (env) {
   if(!result) {
     printHelpMessage();
     var chalk = require('chalk');
-    console.log(chalk.red("invalid input... Consider using the --debug parameter to help diagnose issues."));
+    console.log(chalk.red('invalid input... Consider using the --debug parameter to help diagnose issues.'));
     return;
   }
 
@@ -139,6 +127,19 @@ var invoke = function (env) {
 
   var externalCommand = 'osascript';
   var externalCommandArgs = [ path.join(__dirname, './skypeItAppleScript.scpt'), result.num, result.ext];
+
+
+  // copy the trimmed command to the clipboard
+  if(config && config.copyCommandToClipboard) {
+    dlog('copying skypeit command to clipboard...');
+    var clipboardCmd = 'skypeit \"' + [result.num, result.ext].join(' ').trim() + '"';
+    dlog('copying cmd: ' + clipboardCmd);
+    var copyPaste = require('copy-paste');
+    copyPaste.copy(clipboardCmd, function () {
+      dlog('arguments', arguments);
+      dlog('copying skypeit command to clipboard...');
+    });
+  }
 
   dlog(externalCommand + ' ' + externalCommandArgs.join(' '));
 
