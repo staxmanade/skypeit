@@ -77,12 +77,14 @@ var invoke = function (env) {
   dlog('localConfigPath:', localConfigPath);
   var config = require('../lib/config.js')(debug, globalConfigPath, localConfigPath);
 
+  // print the sample config
   if(argv.sampleConfig) {
     console.log(config.sampleConfig());
     return;
   }
 
 
+  // handle tab completion
   if(argv.completion) {
 
     if(argv.completion === true) {
@@ -94,6 +96,7 @@ var invoke = function (env) {
     return;
   }
 
+  // copy skypeit command to the clipboard
   if(config && config.copyCommandToClipboard) {
     dlog("copying skypeit command to clipboard...");
     var clipboardCmd = "skypeit " + cleanArgs.slice(2).join(' ');
@@ -105,6 +108,7 @@ var invoke = function (env) {
     });
   }
 
+  // look for alias values
   var aliasNumber;
   var alias = argv._[0];
   var result;
@@ -121,6 +125,7 @@ var invoke = function (env) {
     result = parsePhoneNumber(argv._, debug);
   }
 
+  // No result found - print the help message.
   if(!result) {
     printHelpMessage();
     var chalk = require('chalk');
@@ -132,15 +137,14 @@ var invoke = function (env) {
   dlog('debug:', debug);
   dlog('parsePhoneNumber result: ', result);
 
-  var appleScriptArgs = [ path.join(__dirname, './skypeItAppleScript.scpt'), result.num, result.ext];
+  var externalCommand = 'osascript';
+  var externalCommandArgs = [ path.join(__dirname, './skypeItAppleScript.scpt'), result.num, result.ext];
 
-  var appleScriptCmd = 'osascript';
-
-  dlog(appleScriptCmd + ' ' + appleScriptArgs.join(' '));
+  dlog(externalCommand + ' ' + externalCommandArgs.join(' '));
 
   var cmd;
   if(debug) {
-    cmd = spawn(appleScriptCmd, appleScriptArgs);
+    cmd = spawn(externalCommand, externalCommandArgs);
 
     cmd.stdout.on('data', function (data) {
       console.log('stdout: ' + data);
@@ -154,7 +158,7 @@ var invoke = function (env) {
       console.log('child process exited with code ' + code);
     });
   } else {
-    cmd = spawn(appleScriptCmd, appleScriptArgs, {
+    cmd = spawn(externalCommand, externalCommandArgs, {
       detached: true,
       stdio: ['ignore', 'ignore', 'ignore']
     });
