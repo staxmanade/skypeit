@@ -126,8 +126,9 @@ var invoke = function (env) {
 
   dlog(appleScriptCmd + ' ' + appleScriptArgs.join(' '));
 
+  var cmd;
   if(debug) {
-    var cmd = spawn(appleScriptCmd, appleScriptArgs);
+    cmd = spawn(appleScriptCmd, appleScriptArgs);
 
     cmd.stdout.on('data', function (data) {
       console.log('stdout: ' + data);
@@ -141,7 +142,7 @@ var invoke = function (env) {
       console.log('child process exited with code ' + code);
     });
   } else {
-    var cmd = spawn(appleScriptCmd, appleScriptArgs, {
+    cmd = spawn(appleScriptCmd, appleScriptArgs, {
       detached: true,
       stdio: ['ignore', 'ignore', 'ignore']
     });
