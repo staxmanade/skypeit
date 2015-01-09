@@ -4,6 +4,6 @@ alias:
   anotherSample:
     number: 555-555-5555 ext 5555
 
-# Places the skype command for easy
-# for easy sharing to your team
+# Places the skype command into the clipboard
+# for easily sharing with your team
 copyCommandToClipboard: true

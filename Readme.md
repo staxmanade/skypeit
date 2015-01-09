@@ -67,6 +67,9 @@ alias:
   mom:
     number: 555-555-5555 ext 5555
 
+# Places the skype command into the clipboard
+# for easily sharing with your team
+copyCommandToClipboard: true
 ```
 
 > the local `.skypeitrc` is merged with the global `~/.skypeitrc` file to determine the final result of auto-completion options provided by `skypeit --completion`
