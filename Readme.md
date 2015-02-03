@@ -1,6 +1,8 @@
 
 # SkypeIt
 
+> By: [@staxmanade](http://staxmanade.com)
+
 Quickly and easily paste a conference call text at the command line and let SkypeIt dial the number and extension for you.
 
 EX:
