@@ -7,14 +7,16 @@ var parsePhoneNumber = require('../lib/parsePhoneNumber').parsePhoneNumber;
 describe('when parsing skype args', function () {
 
   [
-    {
-      input: 'Dial (555) 555-5555 acc 5555555 lead 5555',
-      expected: {
-        num: '+15555555555',
-        ext: ',5555555#',
-        noPoundAfterExt: false
-      }
-    },
+    // # not supported because of the last test case that
+    // # expects to combine extension digits together.
+    // {
+    //   input: 'Dial (555) 555-5555 acc 5555555 lead 5555',
+    //   expected: {
+    //     num: '+15555555555',
+    //     ext: ',5555555#',
+    //     noPoundAfterExt: false
+    //   }
+    // },
     {
       info: "has a 1 in the front & some whitespace",
       input: '	1-555-555-5555  --> 555555',
@@ -100,6 +102,15 @@ describe('when parsing skype args', function () {
       expected: {
         num: '+15555555555',
         ext: ',5555555#',
+        noPoundAfterExt: false
+      }
+    },
+    {
+      info: "extension has extra spaces and should pull in all numbers",
+      input: '555.555.5555 pass:666 666 6666',
+      expected: {
+        num: '+15555555555',
+        ext: ',6666666666#',
         noPoundAfterExt: false
       }
     },
