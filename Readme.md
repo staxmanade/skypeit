@@ -3,6 +3,8 @@
 
 > By: [@staxmanade](http://staxmanade.com)
 
+## :warning: On the Mac - Microsoft broke the way this used to work. If anyone figures out another way to accomplish the goals - we'd love to hear about it.  :warning:
+
 Quickly and easily paste a conference call text at the command line and let SkypeIt dial the number and extension for you.
 
 EX:
